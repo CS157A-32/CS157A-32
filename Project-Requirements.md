@@ -1,21 +1,20 @@
 # Collegiate Basketball Program Database for Prospective Athletes and Parents
-
-
-
+\
+\
+\
+\
+\
 ## Team 32
-
+\
 #### Team Members:
 * Quang "Lance" Ngo
 * Sandro Sallenbach
 * Chris Douglas
-
-
-
-
-
-
-
-
+\
+\
+\
+\
+\
 
 
 Chris, your stuff comes here.
