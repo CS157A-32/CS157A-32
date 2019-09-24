@@ -1,7 +1,7 @@
 Chris, and Lance, your stuff comes here
 don't forget the title page...
 # System Environment
-![3 Tier Client-Server Architecture of database app](https://photos.google.com/photo/AF1QipMn-nU85WX17XKFxPcfURLhBhK44GrpdCyzoGAo)
+![3 Tier Client-Server Architecture of database app](https://photos.google.com/photo/AF1QipPWaelmQxWjr9US5stJ6bDk7P178CVgsz6AZFZB)
 
 
 # Functional Requirements
