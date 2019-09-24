@@ -1,4 +1,24 @@
-Chris, and Lance, your stuff comes here
+# Collegiate Basketball Program Database for Prospective Athletes and Parents
+
+
+
+## Team 32
+
+#### Team Members:
+* Quang "Lance" Ngo
+* Sandro Sallenbach
+* Chris Douglas
+
+
+
+
+
+
+
+
+
+
+Chris, your stuff comes here.
 don't forget the title page...
 # System Environment
 ![3 Tier Client-Server Architecture of database app](https://i.imgur.com/0cGCJkk.jpg)
