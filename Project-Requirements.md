@@ -16,7 +16,23 @@
 \
 \
 \
-Chris, your stuff comes here.
+## Project Description
+	
+The Collegiate Basketball Program Database App will be a database application that is meant to
+assist high school students, parents, and community college transfer students determine what school
+would best fit their needs in their basketball careers. Users will be able to use the convenient search
+tool to look up what schools have lead to the most successful professional players and have it displayed
+through a handy dynamic web interface. The application will also enable users to filter results by a
+player’s position or team and see a list of schools. For example, if a number of players played Point
+Guard and most of the professionals came from San Jose State University then that should be reflected
+on the webpage.
+
+In addition to providing students and parents with the historical data the web application will also
+create projections about salaries and career lengths to help students determine if a career in the NBA
+is right for them. It’s critical for students to have this information since a lot of our target
+audience will be individuals between the ages of sixteen to twenty and should be making a decision on
+what school they want to attend. Since college has such a high impact on the lives of Americans it’s
+crucial that students make the right choice when selecting.
 
 ## System Environment
 ![3 Tier Client-Server Architecture of database app](https://i.imgur.com/0cGCJkk.jpg)
