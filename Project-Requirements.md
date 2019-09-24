@@ -3,6 +3,18 @@ don't forget the title page...
 # System Environment
 ![3 Tier Client-Server Architecture of database app](https://i.imgur.com/0cGCJkk.jpg)
 
+The Collegiate Basketball Program DB app will be a 3-tier client server architecture. As it is a
+web app, the presentation layer will be delivered through a client internet browser. We will
+implement the presentation layer using ReactJS/Redux. Along with the Express web app
+framework, ReactJS/Redux is currently the most used library to build dynamic web applications.
+The application layer of the app will be housed on an AWS web server implemented with
+NodeJS. This web server will contain the application logic that processes and delivers any
+requested data to the client side, while providing any updates to the data layer initiated by client
+side events. Lastly, the data layer will be hosted on a separate database server using MySQL
+server. The application and data layers will connect using a NodeJS-MySQL api. While we
+anticipate the bulk of our persistent data to be relational, some of the data calls will require
+translation into JSON objects.
+
 
 # Functional Requirements
 
