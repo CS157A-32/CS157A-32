@@ -15,6 +15,16 @@ server. The application and data layers will connect using a NodeJS-MySQL api. W
 anticipate the bulk of our persistent data to be relational, some of the data calls will require
 translation into JSON objects.
 
+### Technologies Used
+
+| Framework | Languages | Utilization |
+| --- |--- | --- |
+| React | Javascript, HTML, CSS | Front-end rendering into browswer |
+| Redux | Javascript | State Store for React |
+| Express | Javascript | Web server in conjunction with NodeJS |
+| NodeJS | Javascript | backend connector to database |
+| MySQL | SQL | database server |
+
 
 # Functional Requirements
 
