@@ -25,7 +25,7 @@ The Collegiate Basketball Program DB app will be a 3-tier client server architec
 web app, the presentation layer will be delivered through a client internet browser. We will
 implement the presentation layer using ReactJS/Redux. Along with the Express web app
 framework, ReactJS/Redux is currently the most used library to build dynamic web applications.
-The application layer of the app will be housed on an AWS web server implemented with
+The application layer of the app will be housed on a locally deployed web server implemented with
 NodeJS. This web server will contain the application logic that processes and delivers any
 requested data to the client side, while providing any updates to the data layer initiated by client
 side events. Lastly, the data layer will be hosted on a separate database server using MySQL
