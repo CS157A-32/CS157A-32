@@ -17,7 +17,7 @@
 \
 \
 Chris, your stuff comes here.
-don't forget the title page...
+
 ## System Environment
 ![3 Tier Client-Server Architecture of database app](https://i.imgur.com/0cGCJkk.jpg)
 
