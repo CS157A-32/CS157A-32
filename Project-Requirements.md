@@ -107,7 +107,7 @@ The frontend of the web application shall be built with the React.js framework. 
 
 ## Non-functional Requirements
 
-### Usability
+#### Usability
 The Collegiate Basketball Program Database web application must be intuitive to navigate. All buttons and links shall be uniform and easy to understand. The search functionality shall be intuitive, even to first time users.
 
 #### Performance
