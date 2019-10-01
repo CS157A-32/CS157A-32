@@ -1,6 +1,11 @@
 # CS157A-32
 Database Design Project
 
+#### Running instructions:
+1. Clone repo
+2. Run 'npm install' in project root folder
+3. Run 'npm run dev' to start both react and server app.
+
 
 ## Project Proposal:
 Project Overview - Chris Douglas
