@@ -19,14 +19,22 @@ class Schools extends Component {
     return (
       <div>
         <h2>College Basketball Programs</h2>
-        <ul>
+        <table>
+          <tr>
+            <th>University</th>
+            <th>City</th>
+            <th>Conference</th>
+          </tr>
+          
           {this.state.schools.map(school => (
-            <li key={school.id}>
-              {" "}
-              {school.name} {school.conference}
-            </li>
+              <tr key={school.id}>
+                <td>{school.name}</td>
+                <td>{school.city}</td>
+                <td>{school.conference}</td>
+              </tr>                
           ))}
-        </ul>
+        </table>
+
       </div>
     );
   }
