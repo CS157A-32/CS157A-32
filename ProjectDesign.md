@@ -14,7 +14,7 @@
 
 ### Entity/Relationship Diagram
 <br>
-![Image of E/R Diagram](https://i.imgur.com/ZqYHxU8.jpg)
+![Imgur Image](http://i.imgur.com/ZqYHxU8.jpg)
 <br>
 
 Figure 1: E/R Diagram
