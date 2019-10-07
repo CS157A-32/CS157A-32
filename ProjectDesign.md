@@ -14,8 +14,7 @@
 
 ### Entity/Relationship Diagram
 <br>
-
-PLEASE ENTER DIAGRAM HERE
+![Image of E/R Diagram](https://i.imgur.com/ZqYHxU8.jpg)
 <br>
 
 Figure 1: E/R Diagram
@@ -26,7 +25,7 @@ Figure 1: E/R Diagram
 ### Definition of Entities and Relationships
 
 #### School
-...
+Uses the name of the school and the conference attended as the key and holds stats such as attendance, tuition, and school mascot.
 <br>
 
 #### City
@@ -50,11 +49,11 @@ Head coaches are stored with their name and number of titles won as attributes.
 <br>
 
 #### Home Stadium
-...
+Home stadium are stored with the stadium name, has a number of people that it can hold, and if they’re on or off campus.
 <br>
 
 #### Admin
-...
+Controls who’s allowed to access to add/edit data on the site. Uses the string Username as the key and has a password
 <br>
 <br>
 
@@ -73,7 +72,7 @@ The relationship between head coach and school will help us identify who is curr
 <br>
 
 #### Plays in
-...
+Plays in is the relationship between a School and a Home Stadium. Every school can have exactly one Home Stadium.
 <br>
 
 #### Won & Achieved
