@@ -14,7 +14,9 @@
 
 ### Entity/Relationship Diagram
 <br>
-![image](https://github.com/CS157A-32/CS157A-32/blob/master/Documents/ERDiagram.jpg)
+
+![image](https://i.imgur.com/ZqYHxU8.jpg)
+
 <br>
 
 Figure 1: E/R Diagram
