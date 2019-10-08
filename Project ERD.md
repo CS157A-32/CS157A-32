@@ -1,4 +1,4 @@
-![Project Entity Relation Diagram](https://imgur.com/FXIFeIf)
+![Project Entity Relation Diagram](https://i.imgur.com/FXIFeIf.jpg)
 
 ### Definition of Entities and Relationships
 
