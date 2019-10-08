@@ -1,3 +1,5 @@
+![Project Entity Relation Diagram](https://imgur.com/FXIFeIf)
+
 ### Definition of Entities and Relationships
 
 ##### School
