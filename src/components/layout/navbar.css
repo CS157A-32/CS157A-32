@@ -1,0 +1,94 @@
+/* Font Boldness:
+100 Thin
+200 Extra Light
+300 Light
+400 Normal
+500 Medium
+600 Semi Bold
+700 Bold
+800 Extra Bold
+900 Ultra Bold */
+
+
+  .smallMenu {
+    display: none;
+  }
+
+  .navbarLogo {
+    position: relative;
+    left: 7%;
+  }
+
+  img.navbar-logo {
+    position: relative;
+    width: 110px;
+    height: auto;
+  }
+
+  .ProjectHome {
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+    position: relative;
+    left: 20px;
+    text-decoration: none;
+    color: white;
+    border-bottom: 0px;
+  }
+
+  .navButtons {
+    border: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 800;
+    height: 45px;
+    border-radius: 10px;
+  }
+
+  .buttonGrey {
+    background-color: #f0f0f0;
+    color: #0c4b78;
+    width: 108px;
+    position: relative;
+  }
+
+  .buttonBlue {
+    background-color: #0c4b78;
+    color: #f0f0f0;
+    width: 108px;
+    position: relative;
+  }
+
+  .headerMenu {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+  }
+
+  .headerMenuBooking {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+  }
+
+  .adjustMenuBurger {
+    left: 22%;
+    position: relative;
+  }
+
+.headerfont {
+  color: #ffffff;
+}
+
+.menuBurger {
+  color: #ffffff;
+}
+
+.navbarContainer {
+  height: 102px;
+  overflow-x: hidden;
+  background-color: #353535;
+}
