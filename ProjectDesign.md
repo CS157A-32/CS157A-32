@@ -15,7 +15,7 @@
 ### Entity/Relationship Diagram
 <br>
 
-![image](https://i.imgur.com/FXIFeIf.jpg)
+![image](https://i.imgur.com/dEIzgVT.jpg)
 
 <br>
 
