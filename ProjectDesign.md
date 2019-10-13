@@ -15,7 +15,7 @@
 ### Entity/Relationship Diagram
 <br>
 
-![image](https://i.imgur.com/FXIFeIf.jpg)
+![image](https://i.imgur.com/dEIzgVT.jpg)
 
 <br>
 
@@ -39,7 +39,7 @@ A championship is a title that a school can win at the end of each season.  Cham
 <br>
 
 #### Head Coach
-Head coaches are stored with their name and number of titles won as attributes.
+Head coaches are stored with an ID number, and their name and # of titles won as attributes.
 <br>
 
 #### Record
