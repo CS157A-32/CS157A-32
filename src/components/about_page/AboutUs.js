@@ -36,6 +36,29 @@ export default (class aboutUs extends Component {
                   className="teamMemberContainer"
                   id="AboutPageNames"
                   target="_blank"
+                  href="https://www.linkedin.com/in/crdouglas94/"
+                >
+                  <img className="aboutPage-images" src={Chris} alt="" />
+                  <br /> <div>Chris Douglas</div>{" "}
+                </a>
+                <div id="AboutPageRoles">Team Lead</div>
+              </Grid>
+            </Grid>
+          </Grid>
+
+          <Grid container spacing={0} direction="row" alignItems="baseline">
+            <Grid
+              container
+              spacing={0}
+              direction="row"
+              justify="space-evenly"
+              alignItems="baseline"
+            >
+              <Grid item >
+                <a
+                  className="teamMemberContainer"
+                  id="AboutPageNames"
+                  target="_blank"
                   href="https://www.linkedin.com/in/ssallenbach/"
                 >
                   <img className="aboutPage-images" src={Sandro} alt="" />
@@ -58,28 +81,6 @@ export default (class aboutUs extends Component {
             </Grid>
           </Grid>
         </Grid>
-        <Grid container spacing={0} direction="row" alignItems="baseline">
-            <Grid
-              container
-              spacing={0}
-              direction="row"
-              justify="space-evenly"
-              alignItems="baseline"
-            >
-              <Grid item >
-                <a
-                  className="teamMemberContainer"
-                  id="AboutPageNames"
-                  target="_blank"
-                  href="https://www.linkedin.com/in/crdouglas94/"
-                >
-                  <img className="aboutPage-images" src={Chris} alt="" />
-                  <br /> <div>Chris Douglas</div>{" "}
-                </a>
-                <div id="AboutPageRoles">Team Lead</div>
-              </Grid>
-            </Grid>
-          </Grid>
       </div>
     );
   }
