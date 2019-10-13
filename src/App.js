@@ -17,5 +17,4 @@ function App() {
     </Router>
   );
 }
-//12: <Schools />
 export default App;
