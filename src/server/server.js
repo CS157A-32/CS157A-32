@@ -1,26 +1,10 @@
 const express = require("express");
-const mysql = require('mysql');
-
 const app = express();
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'xyz',
-  database: 'cs157a'
+app.use(require("./routes"));
 
-});
-
-connection.connect(function(err){
-  (err)? console.log(err): console.log(connection);
-
-});
-
-app.get("/api/schools", (req, res) => {
-
-  connection.query('SELECT * FROM schools', function(err, data){
-    (err)?res.send(err):res.json(data);
-  });
+app.use((req, res) => {
+  res.status(404).send("Unknown Request");
 });
 
 const port = 5000;

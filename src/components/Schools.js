@@ -22,19 +22,18 @@ class Schools extends Component {
         <table>
           <tr>
             <th>University</th>
-            <th>City</th>
+            <th>Mascot</th>
             <th>Conference</th>
           </tr>
-          
+
           {this.state.schools.map(school => (
-              <tr key={school.id}>
-                <td>{school.name}</td>
-                <td>{school.city}</td>
-                <td>{school.conference}</td>
-              </tr>                
+            <tr key={school.id}>
+              <td>{school.name}</td>
+              <td>{school.mascot}</td>
+              <td>{school.conference}</td>
+            </tr>
           ))}
         </table>
-
       </div>
     );
   }
