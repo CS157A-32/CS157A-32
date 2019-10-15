@@ -81,17 +81,17 @@ class SearchResults extends Component {
                 <Grid container direction="column" spacing={0}>
                   <Grid item>
                     <Typography variant="h5" color="black">
-                      {school.name}
+                      {school.School}
                     </Typography>
                   </Grid>
                   <Grid item>
                     <Typography variant="subtitle1" color="primary">
-                      {school.city}
+                      {school.From}
                     </Typography>
                   </Grid>
                   <Grid item>
                     <Typography variant="subtitle1" color="primary">
-                      {school.conference}
+                      {school.To}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -108,7 +108,7 @@ class SearchResults extends Component {
                     <Button
                       variant="contained"
                       color="primary"
-                      // onClick={this.handleClickToHotel(hotel)}
+                      // onClick={this.handleClickToSchool(school)}
                     >
                       See more details
                     </Button>
