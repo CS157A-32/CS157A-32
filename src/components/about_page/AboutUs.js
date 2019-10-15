@@ -81,6 +81,9 @@ export default (class aboutUs extends Component {
             </Grid>
           </Grid>
         </Grid>
+        <br></br>
+        <br></br>
+        <br></br>
       </div>
     );
   }

@@ -1,20 +1,37 @@
 import React from "react";
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import "./App.css";
-import Schools from "./components/Schools";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store";
+
+import NavBar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+import Landing from "./components/landing_page/Landing";
+import searchResultOverview from "./components/search_results/SearchResults";
 import AboutUs from "./components/about_page/AboutUs";
+
 
 function App() {
   return (
-    <Router>
+    <Provider store={store}>
 
-    <div className="App">
-      
-      <Route path="/" component={Schools} />
-      <Route path="/about" component={AboutUs} />
-    </div>
+      <Router>
 
-    </Router>
+        <div className="App">
+          <NavBar />
+          <Route exact path="/" component={Landing} />
+          <Route
+                exact
+                path="/searchResultOverview"
+                component={searchResultOverview}
+              />
+          <Route path="/aboutus" component={AboutUs} />
+
+          <Footer />
+
+        </div>
+      </Router>
+    </Provider>
   );
 }
 export default App;

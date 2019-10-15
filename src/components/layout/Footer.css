@@ -1,0 +1,21 @@
+
+  #footer {
+    height: 80px;
+    background-color: #6b6b6b;
+  }
+
+  .footerLayout {
+    position: relative;
+    top: 24px;
+    height: 45px;
+    font-size: 18px;
+    font-weight: 300;
+    color: #ffffff;
+  }
+
+
+.footerMenuLink {
+  text-decoration: none;
+  color: white;
+  border-bottom: 0px;
+}
