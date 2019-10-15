@@ -1,0 +1,26 @@
+{
+  "title": "properties",
+  "name": [
+    { "label": "New York", "style": "city" },
+    { "label": "San Francisco", "style": "city" },
+    { "label": "Los Angeles", "style": "city" },
+    { "label": "San Diego", "style": "city" },
+    { "label": "Berkeley", "style": "city" },
+    { "label": "Boston", "style": "city" },
+    { "label": "Stanford", "style": "city" },
+    { "label": "Philadelphia", "style": "city" },
+    { "label": "San Jose", "style": "city" },
+    {
+      "label": "San Jose State University"
+    },
+    {
+      "label": "University of California Los Angeles"
+    },
+    {
+      "label": "Stanford University"
+    },
+    {
+      "label": "University of California Berkeley"
+    }
+  ]
+}
