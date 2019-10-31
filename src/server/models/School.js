@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const db = requir("../db/db");
+const db = require("../db/db");
 module.exports = db.Sequelize.define(
     "school",
     {
@@ -26,4 +26,4 @@ module.exports = db.Sequelize.define(
     {
         timestamps: false
     }
-)
+);
