@@ -1,0 +1,66 @@
+.wholePage {
+  margin-left: 140px;
+  margin-right: 3%;
+  margin-top: 3%;
+}
+
+.schoolName {
+  margin-top: 1%;
+  margin-left: -11%;
+  margin-right: 3%;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.schoolConference {
+  margin-top: 1%;
+  margin-left: -11%;
+  font-size: 28px;
+  font-weight: bold;
+  color: #808080;
+}
+
+.title {
+  margin-top: 18%;
+  font-size: 24px;
+  font-weight: 550;
+}
+
+.infotext {
+  margin-top: 2%;
+  font-size: 18px;
+  font-weight: 450;
+}
+.stars {
+  z-index: 0;
+}
+
+img.indiv-logo {
+  position: relative;
+  width: 150px;
+  height: auto;
+  left: -65px;
+}
+
+img.indiv-image {
+  margin-top: 5%;
+  position: relative;
+  width: 90%;
+  height: auto;
+}
+
+.schoolImageContainer {
+  text-align: left;
+}
+
+.mapsContainer {
+  text-align: left;
+  /* position: relative; */
+  max-width: 100px !important;
+  /* width: 90%; */
+  height: auto;
+}
+
+.townContainer {
+  margin-top: 70px;
+}
