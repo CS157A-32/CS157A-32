@@ -12,7 +12,6 @@ import NavbarMenu from "./NavbarMenu";
 import NBALogo from "../../images/nba.png";
 import NCAALogo from "../../images/ncaa_official_logo.png";
 import withWidth from "@material-ui/core/withWidth";
-import { isWidthDown } from "@material-ui/core/withWidth";
 
 import "./navbar.css";
 
@@ -55,16 +54,16 @@ class Navbar extends Component {
       >
         <Grid item>
           {/* <Link to="/register"> */}
-            <Button class="navButtons buttonGrey" primary>
-              Sign Up
-            </Button>
+          <Button class="navButtons buttonGrey" primary>
+            Sign Up
+          </Button>
           {/* </Link> */}
         </Grid>
         <Grid item>
           {/* <Link to="/login"> */}
-            <Button class="navButtons buttonBlue" primary>
-              Login
-            </Button>
+          <Button class="navButtons buttonBlue" primary>
+            Login
+          </Button>
           {/* </Link> */}
         </Grid>
       </Grid>
@@ -91,7 +90,6 @@ class Navbar extends Component {
       </Grid>
     );
 
-
     return (
       <div className="navbarContainer">
         <Grid
@@ -102,36 +100,26 @@ class Navbar extends Component {
           justify="space-between"
           alignItems="center"
         >
-              <Grid
-                container
-                direction="row"
-                justify="space-evenly"
-                alignItems="center"
-              >
-                <Link to="/">
-
-                  <Grid item>
-                    <img
-                      className="navbar-logo"
-                      src={NCAALogo}
-                      alt="Navbar Logo"
-                    />
-                  </Grid>
-                </Link>
-
-                <Grid item className="ProjectHome">
-                  Collegiate Basketball Program Database
-                </Grid>
-
-                <Grid item>
-                  <img
-                    className="navbar-logo"
-                    src={NBALogo}
-                    alt="Navbar Logo"
-                  />
-                </Grid>
+          <Grid
+            container
+            direction="row"
+            justify="space-evenly"
+            alignItems="center"
+          >
+            <Link to="/">
+              <Grid item>
+                <img className="navbar-logo" src={NCAALogo} alt="Navbar Logo" />
               </Grid>
+            </Link>
 
+            <Grid item className="ProjectHome">
+              Collegiate Basketball Program Database
+            </Grid>
+
+            <Grid item>
+              <img className="navbar-logo" src={NBALogo} alt="Navbar Logo" />
+            </Grid>
+          </Grid>
         </Grid>
       </div>
     );
@@ -152,5 +140,5 @@ let mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   // { logoutUser, clearCurrentProfile, getProfileInfo }
-  {  }
+  {}
 )(withWidth()(Navbar));
