@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const db = require("../db/db");
+
 module.exports = db.sequelize.define(
   "user",
   {
@@ -11,13 +12,6 @@ module.exports = db.sequelize.define(
     password: {
       type: Sequelize.STRING,
       allowNull: false
-    },
-    admin: {
-      type: Sequelize.BOOLEAN,
-    },
-    created: {
-      type: Sequelize.DATE,
-      defaultValue: Sequelize.NOW
     }
   },
   {
