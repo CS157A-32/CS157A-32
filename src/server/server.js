@@ -10,11 +10,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //const Schools = require("./routes/Schools");
 //app.use(require("./routes"));
 
-const Users = require("./routes/Users");
+//const Users = require("./routes/Users");
 const Schools = require("./routes/Schools");
 
 //endpoint for login = /api/users/login
-app.use("/api/users", Users);
+//app.use("/api/users", Users);
 app.use("/api/schools", Schools);
 
 app.use((req, res) => {
