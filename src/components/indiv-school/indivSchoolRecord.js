@@ -98,73 +98,73 @@ class IndivSchoolRecord extends Component {
               </Grid>
             </div>
           ) : (
-            <div id="whole page">
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="flex-start"
-              >
+              <div id="whole page">
                 <Grid
                   container
-                  md={8}
-                  direction="column"
-                  justify="flex-start"
+                  direction="row"
+                  justify="center"
                   alignItems="flex-start"
                 >
                   <Grid
                     container
-                    direction="row"
+                    md={8}
+                    direction="column"
                     justify="flex-start"
                     alignItems="flex-start"
                   >
-                    <Grid container md={3}>
-                      <img
-                        className="indiv-logo"
-                        src={individualSchoolRecord.logoImage}
-                        alt="Navbar Logo"
-                      />
-                    </Grid>
                     <Grid
                       container
-                      md={9}
-                      direction="column"
+                      direction="row"
                       justify="flex-start"
                       alignItems="flex-start"
                     >
-                      <Grid item class="schoolName">
-                        {individualSchoolRecord.schoolName}
+                      <Grid container md={3}>
+                        <img
+                          className="indiv-logo"
+                          src={individualSchoolRecord.logoImage}
+                          alt="Navbar Logo"
+                        />
                       </Grid>
-                      <Grid item class="schoolConference">
-                        School Record
+                      <Grid
+                        container
+                        md={9}
+                        direction="column"
+                        justify="flex-start"
+                        alignItems="flex-start"
+                      >
+                        <Grid item class="schoolName">
+                          {individualSchoolRecord.schoolName}
+                        </Grid>
+                        <Grid item class="schoolConference">
+                          School Record
+                      </Grid>
                       </Grid>
                     </Grid>
-                  </Grid>
-                  <Grid container direction="row" alignItems="flex-start">
-                    <Paper className={classes.root}>
-                      <Table aria-label="customized table">
-                        <TableHead>
-                          <StyledTableRow>
-                            <StyledTableCell>Year</StyledTableCell>
-                            <StyledTableCell align="right">
-                              Wins
+                    <Grid container direction="row" alignItems="flex-start">
+                      <Paper className={classes.root}>
+                        <Table aria-label="customized table">
+                          <TableHead>
+                            <StyledTableRow>
+                              <StyledTableCell>Year</StyledTableCell>
+                              <StyledTableCell align="right">
+                                Wins
                             </StyledTableCell>
-                            <StyledTableCell align="right">
-                              Losses
+                              <StyledTableCell align="right">
+                                Losses
                             </StyledTableCell>
-                            <StyledTableCell align="right">
-                              Percentage
+                              <StyledTableCell align="right">
+                                Percentage
                             </StyledTableCell>
-                          </StyledTableRow>
-                        </TableHead>
-                        <TableBody>{records}</TableBody>
-                      </Table>
-                    </Paper>
+                            </StyledTableRow>
+                          </TableHead>
+                          <TableBody>{records}</TableBody>
+                        </Table>
+                      </Paper>
+                    </Grid>
                   </Grid>
                 </Grid>
-              </Grid>
-            </div>
-          )}
+              </div>
+            )}
         </div>
       );
     }

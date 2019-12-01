@@ -112,76 +112,76 @@ class IndivSchoolNBA extends Component {
               </Grid>
             </div>
           ) : (
-            <div id="whole page">
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="flex-start"
-              >
+              <div id="whole page">
                 <Grid
                   container
-                  md={9}
-                  direction="column"
-                  justify="flex-start"
+                  direction="row"
+                  justify="center"
                   alignItems="flex-start"
                 >
                   <Grid
                     container
-                    direction="row"
+                    md={9}
+                    direction="column"
                     justify="flex-start"
                     alignItems="flex-start"
                   >
-                    <Grid container md={3}>
-                      <img
-                        className="indiv-logo"
-                        src={this.state.logoImage}
-                        alt="Navbar Logo"
-                      />
-                    </Grid>
                     <Grid
                       container
-                      md={9}
-                      direction="column"
+                      direction="row"
                       justify="flex-start"
                       alignItems="flex-start"
                     >
-                      <Grid item class="schoolName">
-                        {this.state.schoolName}
+                      <Grid container md={3}>
+                        <img
+                          className="indiv-logo"
+                          src={this.state.logoImage}
+                          alt="Navbar Logo"
+                        />
                       </Grid>
-                      <Grid item class="schoolConference">
-                        Graduates in the NBA
+                      <Grid
+                        container
+                        md={9}
+                        direction="column"
+                        justify="flex-start"
+                        alignItems="flex-start"
+                      >
+                        <Grid item class="schoolName">
+                          {this.state.schoolName}
+                        </Grid>
+                        <Grid item class="schoolConference">
+                          Graduates in the NBA
+                      </Grid>
                       </Grid>
                     </Grid>
-                  </Grid>
-                  <Grid container direction="row" alignItems="flex-start">
-                    <Paper className={classes.root}>
-                      <Table aria-label="customized table">
-                        <TableHead>
-                          <StyledTableRow>
-                            <StyledTableCell>Player Name</StyledTableCell>
-                            <StyledTableCell align="right">
-                              Position
+                    <Grid container direction="row" alignItems="flex-start">
+                      <Paper className={classes.root}>
+                        <Table aria-label="customized table">
+                          <TableHead>
+                            <StyledTableRow>
+                              <StyledTableCell>Player Name</StyledTableCell>
+                              <StyledTableCell align="right">
+                                Position
                             </StyledTableCell>
-                            <StyledTableCell align="right">
-                              Draft Year
+                              <StyledTableCell align="right">
+                                Draft Year
                             </StyledTableCell>
-                            <StyledTableCell align="right">
-                              Current NBA Team
+                              <StyledTableCell align="right">
+                                Current NBA Team
                             </StyledTableCell>
-                            <StyledTableCell align="right">
-                              Salary
+                              <StyledTableCell align="right">
+                                Salary
                             </StyledTableCell>
-                          </StyledTableRow>
-                        </TableHead>
-                        <TableBody>{players}</TableBody>
-                      </Table>
-                    </Paper>
+                            </StyledTableRow>
+                          </TableHead>
+                          <TableBody>{players}</TableBody>
+                        </Table>
+                      </Paper>
+                    </Grid>
                   </Grid>
                 </Grid>
-              </Grid>
-            </div>
-          )}
+              </div>
+            )}
         </div>
       );
     }
