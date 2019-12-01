@@ -1,0 +1,46 @@
+img.school-logo {
+  position: relative;
+  width: 120px;
+  height: auto;
+}
+
+.searchResultSchoolName {
+  margin-top: 11%;
+  margin-left: -5%;
+  margin-right: 3%;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.searchResultSchoolConference {
+  margin-top: 2%;
+  margin-left: -5%;
+  font-size: 19px;
+  font-weight: bold;
+  color: #808080;
+}
+
+.moreInfoButton {
+  margin-top: 8%;
+}
+
+.extraBoxTitle {
+  margin-top: 5%;
+  margin-bottom: 4%;
+  font-size: 23px;
+  font-weight: bold;
+  color: #353535;
+}
+
+.extraBoxOptions {
+  /* margin-top: 6%; */
+  margin-bottom: 3%;
+  font-size: 17px;
+  font-weight: bold;
+  color: #808080;
+}
+
+.test {
+  margin: 10px;
+  /* padding:10px; */
+}

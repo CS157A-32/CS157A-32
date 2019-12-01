@@ -8,11 +8,18 @@ const Con = require("../db/index");
 const router = express.Router();
 
 router.get("/api/schools", getSchools);
+router.get("/api/nbaplayers", getNBAPlayers);
 
 module.exports = router;
 
 function getSchools(req, res) {
   Con.query("SELECT * FROM school", function(err, data) {
+    err ? res.send(err) : res.json(data);
+  });
+}
+
+function getNBAPlayers(req, res) {
+  Con.query("SELECT * FROM nbaplayers", function(err, data) {
     err ? res.send(err) : res.json(data);
   });
 }
