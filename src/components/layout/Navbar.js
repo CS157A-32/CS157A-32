@@ -30,11 +30,13 @@ class Navbar extends Component {
     // this.props.logoutUser();
   }
 
+  /*
   componentWillMount() {
     if (localStorage.jwtToken) {
       this.props.getProfileInfo();
     }
   }
+  */
 
   render() {
     // Markup shown on the right hand side of Navbar when user is GUEST.

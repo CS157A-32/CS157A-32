@@ -1,0 +1,68 @@
+@media screen and (min-width: 1200px) {
+  
+    .loginContainer {
+      padding-bottom: 80px;
+    }
+  
+    #LoginPageNames {
+      font-size: 22px;
+      font-weight: 600;
+      color: black;
+      text-align: center;
+      text-decoration: none;
+    }
+  
+    #LoginPageRoles {
+      font-size: 18px;
+      font-weight: 600;
+      color: black;
+      text-align: center;
+    }
+
+    #Spacer{
+      margin-bottom: 35%;
+    }
+  
+    .teamMemberSwitch2 {
+      display: none;
+    }
+
+
+  }
+
+  #LoginGrid {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #LoginPaper
+  {
+    width: 500px;
+    height: 300px;
+  }
+
+  #LoginForm{
+    width: 380px;
+    height: 100%;
+    padding-top: 2%;
+  }
+
+  #LoginButton
+  {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #LoginContainerTitle {
+    color: #0c4b78;
+    font-size: 34px;
+    font-weight: 900;
+    position: relative;
+    text-align: center;
+    padding: 50px;
+  }
