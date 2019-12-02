@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-// import "./aboutUs.css";
 import PropTypes from "prop-types";
+import { logoutUser } from "../../actions/authActions";
+
 import { connect } from "react-redux";
 import {
   Grid,
@@ -11,8 +12,6 @@ import {
   Card
 } from "@material-ui/core";
 import axios from "axios";
-
-import { createPlayer } from "../../actions/adminActions";
 
 class AdminPage extends Component {
   constructor() {
@@ -34,6 +33,7 @@ class AdminPage extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onSubmitEdit = this.onSubmitEdit.bind(this);
     this.onSubmitDelete = this.onSubmitDelete.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   componentWillMount() {
@@ -44,6 +44,11 @@ class AdminPage extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+  }
+
+  handleLogout() {
+    this.props.logoutUser();
+    this.props.history.push("/");
   }
 
   // update the component state of TextField
@@ -268,7 +273,16 @@ class AdminPage extends Component {
             </Grid>
           </Grid>
         </Grid>
-
+        <br></br>
+        <br></br>
+        <Button
+          id="LogoutButton"
+          variant="contained"
+          color="primary"
+          onClick={this.handleLogout}
+        >
+          Logout
+        </Button>
         <br></br>
         <br></br>
         <br></br>
@@ -282,5 +296,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, {
-  createPlayer
+  logoutUser
 })(withWidth()(AdminPage));
