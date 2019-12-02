@@ -12,8 +12,8 @@ import AboutUs from "./components/about_page/AboutUs";
 import Login from "./components/Login/Login";
 import indivSchool from "./components/indiv-school/indivSchool";
 import indivSchoolChampionships from "./components/indiv-school/indivSchoolChampionships";
-//import indivSchoolRecord from "./components/indiv-school/indivSchoolRecord";
-//import indivSchoolNBA from "./components/indiv-school/indivSchoolNBA";
+import indivSchoolRecord from "./components/indiv-school/indivSchoolRecord";
+import indivSchoolNBA from "./components/indiv-school/indivSchoolNBA";
 
 function App() {
   return (
@@ -33,14 +33,14 @@ function App() {
             path="/indivSchoolChamp"
             component={indivSchoolChampionships}
           />
-          {/* <Route
+          <Route
             exact
             path="/indivSchoolRecord"
             component={indivSchoolRecord}
           />
-          {<Route exact path="/indivSchoolNBA" component={indivSchoolNBA} />} 
+          {<Route exact path="/indivSchoolNBA" component={indivSchoolNBA} />}
           <Route path="/aboutus" component={AboutUs} />
-          <Route path="/login" component={Login} /> */}
+          <Route path="/login" component={Login} />
           <Footer />
         </div>
       </Router>
