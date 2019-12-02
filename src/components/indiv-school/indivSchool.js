@@ -81,8 +81,8 @@ class IndivSchool extends Component {
             google={this.props.google}
             zoom={10}
             initialCenter={{
-              lat: individualSchoolData.lat,
-              lng: individualSchoolData.lng
+              lat: individualSchoolData.latitude,
+              lng: individualSchoolData.longitude
             }}
             style={{
               maxWidth: "32%",
@@ -95,8 +95,8 @@ class IndivSchool extends Component {
               onClick={this.onMarkerClick}
               name={"Current location"}
               position={{
-                lat: individualSchoolData.lat,
-                lng: individualSchoolData.lng
+                lat: individualSchoolData.latitude,
+                lng: individualSchoolData.longitude
               }}
             />
             <InfoWindow onClose={this.onInfoWindowClose}>
@@ -229,7 +229,8 @@ class IndivSchool extends Component {
                         Titles Won: {individualSchoolData.Titles}
                       </Grid>
                       <Grid item class="infotext">
-                        Win Percentage: {individualSchoolData.WLP}
+                        Win Percentage:{" "}
+                        {(individualSchoolData.WLP * 100).toFixed(1)} %
                       </Grid>
                     </Grid>
                   </Grid>

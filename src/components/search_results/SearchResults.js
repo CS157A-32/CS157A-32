@@ -63,7 +63,7 @@ class SearchResults extends Component {
   }
 
   componentWillUnmount() {
-    // this.props.clearData();
+    this.props.clearData();
   }
 
   // Handles 'Navigate to Individual School'

@@ -3,12 +3,14 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
-import TextField from '@material-ui/core/TextField';
+import TextField from "@material-ui/core/TextField";
+import { loginUser } from "../../actions/authActions";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
 import "./login.css";
 
-
-
-export default (class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,23 +24,39 @@ export default (class Login extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/admin");
+    }
   }
+
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push("/admin");
+    }
+  };
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
   onSubmit(e) {
-    //e.preventDefualt(); //saw this on the Abode example. dont know what it does but it threw an error when i left it in
+    e.preventDefault();
 
     const userData = {
       username: this.state.username,
-      password: this.state.password,
+      password: this.state.password
     };
 
-    //i think this is where we would want the authentication stuff
+    this.props.loginUser(userData);
   }
 
+  // onSubmit = credentials => event => {
+  //   event.preventDefault();
+  //   this.props.getSchoolRecord({
+  //     username: credentials.username,
+  //     password: credentials.password
+  //   });
+  // };
 
   render() {
     return (
@@ -53,11 +71,11 @@ export default (class Login extends Component {
           spacing={0}
           direction="column"
           justify="center"
-          alignItems="center">
-
+          alignItems="center"
+        >
           <Paper id="LoginPaper">
+            <br></br>
             <FormControl id="LoginForm" onSubmit={this.onSubmit}>
-
               <TextField
                 id="filled-required"
                 label="Username"
@@ -66,7 +84,8 @@ export default (class Login extends Component {
                 margin="normal"
                 variant="filled"
                 value={this.state.username}
-                onChange={this.onChange} />
+                onChange={this.onChange}
+              />
 
               <TextField
                 id="standard-password-input"
@@ -77,23 +96,36 @@ export default (class Login extends Component {
                 margin="normal"
                 variant="filled"
                 value={this.state.password}
-                onChange={this.onChange} />
+                onChange={this.onChange}
+              />
+              <br></br>
 
               <Button
                 id="LoginButton"
                 variant="contained"
                 color="primary"
-                onClick={this.onSubmit}>
+                onClick={this.onSubmit}
+              >
                 Login
               </Button>
             </FormControl>
           </Paper>
-
         </Grid>
-        <Grid style={{ minHeight: window.innerHeight - 328 }}>
-
-        </Grid>
+        <Grid style={{ minHeight: window.innerHeight - 328 }}></Grid>
       </Grid>
     );
   }
+}
+
+// Login.PropTypes = {
+//   loginUser: PropTypes.func.isRequired,
+//   auth: PropTypes.object.isRequired,
+//   errors: PropTypes.object.isRequired
+// };
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
 });
+
+export default connect(mapStateToProps, { loginUser })(Login);

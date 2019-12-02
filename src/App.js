@@ -3,6 +3,8 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
+import jwt_decode from "jwt-decode";
+import setAuthToken from "./utils/setAuthToken";
 
 import NavBar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
@@ -10,6 +12,7 @@ import Landing from "./components/landing_page/Landing";
 import searchResultOverview from "./components/search_results/SearchResults";
 import AboutUs from "./components/about_page/AboutUs";
 import Login from "./components/Login/Login";
+import AdminPage from "./components/Admin/AdminPage";
 import indivSchool from "./components/indiv-school/indivSchool";
 import indivSchoolChampionships from "./components/indiv-school/indivSchoolChampionships";
 import indivSchoolRecord from "./components/indiv-school/indivSchoolRecord";
@@ -41,6 +44,7 @@ function App() {
           {<Route exact path="/indivSchoolNBA" component={indivSchoolNBA} />}
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/login" component={Login} />
+          <Route path="/admin" component={AdminPage} />
           <Footer />
         </div>
       </Router>
