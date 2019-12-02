@@ -48,30 +48,30 @@ nbaplayers.post("/addPlayer", (req, res) => {
 nbaplayers.post("/deletePlayer", (req, res) => {
   console.log(req.body);
   let playerId;
+  // pool.query(
+  //   `SELECT id FROM nbaplayers WHERE name = "${req.body.name}" AND team = "${req.body.team}"`,
+  //   (err, result) => {
+  //     if (err) throw err;
+  //     console.log(result);
+  //     console.log(result[0].id);
+  //     playerId = result[0].id;
+  //     console.log(playerId);
   pool.query(
-    `SELECT id FROM nbaplayers WHERE name = "${req.body.name}" AND team = "${req.body.team}"`,
+    `DELETE FROM nbaplayers WHERE id = ${req.body.playerId}`,
     (err, result) => {
       if (err) throw err;
-      console.log(result);
-      console.log(result[0].id);
-      playerId = result[0].id;
-      console.log(playerId);
+      console.log(result.affectedRows);
       pool.query(
-        `DELETE FROM nbaplayers WHERE id = ${playerId}`,
+        `DELETE FROM playedfor WHERE pid = ${req.body.playerId}`,
         (err, result) => {
           if (err) throw err;
-          console.log(result.affectedRows);
-          pool.query(
-            `DELETE FROM playedfor WHERE pid = ${playerId}`,
-            (err, result) => {
-              if (err) throw err;
-              res.send(result);
-            }
-          );
+          res.send(result);
         }
       );
     }
   );
+  // }
+  // );
 });
 
 nbaplayers.post("/editPlayer", (req, res) => {
