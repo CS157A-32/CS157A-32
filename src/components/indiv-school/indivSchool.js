@@ -74,6 +74,7 @@ class IndivSchool extends Component {
         origin: new this.props.google.maps.Point(0, 0),
         anchor: new this.props.google.maps.Point(0, 32)
       };
+
       let displayGoogleMaps = (
         <div style={{ zIndex: -1 }}>
           <Map
@@ -228,7 +229,7 @@ class IndivSchool extends Component {
                         Titles Won: {individualSchoolData.Titles}
                       </Grid>
                       <Grid item class="infotext">
-                        Win Percentage: {individualSchoolData.WL}
+                        Win Percentage: {individualSchoolData.WLP}
                       </Grid>
                     </Grid>
                   </Grid>
@@ -261,17 +262,21 @@ class IndivSchool extends Component {
                       alignItems="flex-start"
                     >
                       <Grid item className="infotext">
-                        Championships:{" "}
-                        {individualSchoolData.numberOfChampionships} <br></br>{" "}
-                        <Button
-                          className="buttonSearch"
-                          primary
-                          onClick={this.handleClickChampionship(
-                            individualSchoolData
-                          )}
-                        >
-                          more info
-                        </Button>
+                        Championships: {individualSchoolData.Championships}{" "}
+                        <br></br>{" "}
+                        {individualSchoolData.Championships +
+                          individualSchoolData.RunnerUp >
+                        0 ? (
+                          <Button
+                            className="buttonSearch"
+                            primary
+                            onClick={this.handleClickChampionship(
+                              individualSchoolData
+                            )}
+                          >
+                            more info
+                          </Button>
+                        ) : null}
                       </Grid>{" "}
                       <Grid item className="infotext">
                         18/19 Record: {individualSchoolData.wins}-
