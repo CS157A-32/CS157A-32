@@ -32,6 +32,8 @@ schools.get("/oneSchool", (req, res) => {
     coaches ON schools.SchoolName = coaches.School_name JOIN
     head_coach ON coaches.Coach_id = head_coach.ID JOIN
     record ON record.school = schools.SchoolName AND record.year = 2019 JOIN
+    (SELECT COUNT(schoolName) AS Championships FROM won WHERE won.schoolName = "${req.query.school}") AS titleCount JOIN
+    (SELECT COUNT(opponent) AS RunnerUp FROM won WHERE won.opponent = "${req.query.school}") AS appear JOIN
     (SELECT COUNT(college) AS NBAplayers FROM nbaplayers WHERE nbaplayers.college = "${req.query.school}") AS NBAcount
     WHERE schools.SchoolName = "${req.query.school}" AND schools.conf = "${req.query.conference}"`,
     (err, result) => {
