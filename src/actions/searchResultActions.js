@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getIndividualSchoolResult = school => dispatch => {
   axios
-    .get("/api/school/individual", { params: school })
+    .get("/api/schools/oneSchool", { params: school })
     .then(res => {
       var schoolInfo = res.data;
       dispatch({

@@ -6,7 +6,7 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  schoolQuery: { results: [] }, // all the schools that match
+  schoolQuery: [], // all the schools that match
   searchQuery: null, // the search arguments
   loading: true
 };

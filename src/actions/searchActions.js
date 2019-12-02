@@ -4,7 +4,7 @@ import axios from "axios";
 export const submitQuery = newQuery => dispatch => {
   dispatch(setSearchLoading());
   axios
-    .get("/api/schools", { params: newQuery })
+    .get("/api/schools/search", { params: newQuery })
     // if success then res.data will be the product object we looking for
     .then(res => {
       dispatch({
