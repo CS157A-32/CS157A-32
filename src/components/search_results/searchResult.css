@@ -44,3 +44,9 @@ img.school-logo {
   margin: 10px;
   /* padding:10px; */
 }
+
+.stars {
+  top: 5px;
+  /* left: 140px; */
+  right: 60px;
+}

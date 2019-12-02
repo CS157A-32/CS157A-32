@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Grid, Card, Button, withStyles, withWidth } from "@material-ui/core";
 import { getIndividualSchoolResult } from "../../actions/searchResultActions";
 import { clearData } from "../../actions/searchResultActions";
+import ReactStars from "react-stars";
 
 import {
   ArrowDownward,
@@ -185,6 +186,18 @@ class SearchResults extends Component {
                       {school.conf}
                     </Grid>
                   </Grid>
+                  {school.attendance > 40000 || school.tuition < 5000 ? (
+                    <ReactStars
+                      className="stars"
+                      count={1}
+                      value={1}
+                      size={36}
+                      edit={false}
+                      color2={"#FFD700"}
+                      color1={"#dcdcdc"}
+                    />
+                  ) : null}
+
                   <Grid item md={3} class="moreInfoButton">
                     <Button
                       variant="contained"
