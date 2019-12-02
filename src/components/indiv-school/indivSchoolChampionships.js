@@ -63,26 +63,25 @@ class IndivSchoolChampionships extends Component {
   }
 
   render() {
-    let { classes } = this.props;
-
-    if (this.props.individualSchoolChampionships.schoolName === null) {
+    if (this.props.schoolData.individualSchoolChampionships[0] === null) {
       this.props.history.push("/");
       return null;
     } else {
-      const {
-        individualSchoolChampionships
-      } = this.props.individualSchoolChampionships;
+      let { classes } = this.props;
+      const { individualSchoolData } = this.props.schoolData;
+      const { individualSchoolChampionships } = this.props.schoolData;
 
       let championships;
 
-      championships = individualSchoolChampionships.championship.map(champs => {
+      championships = individualSchoolChampionships.map(champs => {
         return (
           <StyledTableRow key={champs.title}>
             <StyledTableCell component="th" scope="row">
               {champs.title}
             </StyledTableCell>
-            <StyledTableCell align="right">{champs.year}</StyledTableCell>
-            <StyledTableCell align="right">{champs.opponent}</StyledTableCell>
+            <StyledTableCell align="left">{champs.year}</StyledTableCell>
+            <StyledTableCell align="left">{champs.schoolName}</StyledTableCell>
+            <StyledTableCell align="left">{champs.opponent}</StyledTableCell>
             <StyledTableCell align="right">{champs.score}</StyledTableCell>
           </StyledTableRow>
         );
@@ -90,7 +89,7 @@ class IndivSchoolChampionships extends Component {
 
       return (
         <div class="wholePage" style={{ minHeight: window.innerHeight - 180 }}>
-          {individualSchoolChampionships.schoolName == null ? (
+          {this.props.schoolData.individualSchoolChampionships == null ? (
             <div>
               <Grid item>
                 <CircularProgress />
@@ -120,7 +119,7 @@ class IndivSchoolChampionships extends Component {
                     <Grid container md={3}>
                       <img
                         className="indiv-logo"
-                        src={individualSchoolChampionships.logoImage}
+                        src={individualSchoolData.logo}
                         alt="Navbar Logo"
                       />
                     </Grid>
@@ -132,10 +131,10 @@ class IndivSchoolChampionships extends Component {
                       alignItems="flex-start"
                     >
                       <Grid item class="schoolName">
-                        {individualSchoolChampionships.schoolName}
+                        {individualSchoolData.SchoolName}
                       </Grid>
                       <Grid item class="schoolConference">
-                        School Championships
+                        School Championship Games
                       </Grid>
                     </Grid>
                   </Grid>
@@ -145,10 +144,11 @@ class IndivSchoolChampionships extends Component {
                         <TableHead>
                           <StyledTableRow>
                             <StyledTableCell>Title</StyledTableCell>
-                            <StyledTableCell align="right">
-                              Year
+                            <StyledTableCell align="left">Year</StyledTableCell>
+                            <StyledTableCell align="left">
+                              Winner
                             </StyledTableCell>
-                            <StyledTableCell align="right">
+                            <StyledTableCell align="left">
                               Opponent
                             </StyledTableCell>
                             <StyledTableCell align="right">
@@ -170,8 +170,7 @@ class IndivSchoolChampionships extends Component {
   }
 }
 const mapStateToProps = state => ({
-  individualSchoolChampionships: state.individualSchoolChampionships,
-  query: state.query
+  schoolData: state.schoolData
 });
 export default connect(
   mapStateToProps,

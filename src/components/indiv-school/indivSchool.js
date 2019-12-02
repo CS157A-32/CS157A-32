@@ -4,6 +4,11 @@ import { connect } from "react-redux";
 // import { saveRecord } from "../../actions/adminActions";
 import Button from "@material-ui/core/Button";
 import { Grid, CircularProgress } from "@material-ui/core";
+import {
+  getSchoolRecord,
+  getSchoolChampionships,
+  getSchoolNBA
+} from "../../actions/individualSchoolActions";
 
 import "./indivSchool.css";
 
@@ -31,41 +36,39 @@ class IndivSchool extends Component {
   // Handles 'Navigate to More Records info
   handleClickRecord = school => event => {
     event.preventDefault();
-    // this.props.getIndividualSchool({
-    //   schoolName: school.SchoolName,
-    //   schoolConference: school.conf
-    // });
+    this.props.getSchoolRecord({
+      school: school.SchoolName,
+      conference: school.conf
+    });
     this.props.history.push("/indivSchoolRecord");
   };
 
   // Handles 'Navigate to More NBA info about School
   handleClickNBA = school => event => {
     event.preventDefault();
-    // this.props.getIndividualSchool({
-    //   schoolName: school.SchoolName,
-    //   schoolConference: school.conf
-    // });
+    this.props.getSchoolNBA({
+      school: school.SchoolName
+    });
     this.props.history.push("/indivSchoolNBA");
   };
 
   // Handles 'Navigate to More Championships info
   handleClickChampionship = school => event => {
     event.preventDefault();
-    // this.props.getIndividualSchool({
-    //   schoolName: school.SchoolName,
-    //   schoolConference: school.conf
-    // });
+    this.props.getSchoolChampionships({
+      school: school.SchoolName
+    });
     this.props.history.push("/indivSchoolChamp");
   };
 
   render() {
-    if (this.props.individualSchoolData.schoolName === null) {
+    if (this.props.schoolData.individualSchoolData.SchoolName === null) {
       this.props.history.push("/");
       return null;
     } else {
-      const { individualSchoolData } = this.props.individualSchoolData;
+      const { individualSchoolData } = this.props.schoolData;
       let iconA = {
-        url: individualSchoolData.logoImage,
+        url: individualSchoolData.logo,
         size: new this.props.google.maps.Size(100, 100),
         scaledSize: new this.props.google.maps.Size(40, 40),
         origin: new this.props.google.maps.Point(0, 0),
@@ -77,12 +80,12 @@ class IndivSchool extends Component {
             google={this.props.google}
             zoom={10}
             initialCenter={{
-              lat: individualSchoolData.latitude,
-              lng: individualSchoolData.longitude
+              lat: individualSchoolData.lat,
+              lng: individualSchoolData.lng
             }}
             style={{
               maxWidth: "32%",
-              height: "100%",
+              height: "70%",
               marginTop: "1%"
             }}
           >
@@ -91,13 +94,13 @@ class IndivSchool extends Component {
               onClick={this.onMarkerClick}
               name={"Current location"}
               position={{
-                lat: individualSchoolData.latitude,
-                lng: individualSchoolData.longitude
+                lat: individualSchoolData.lat,
+                lng: individualSchoolData.lng
               }}
             />
             <InfoWindow onClose={this.onInfoWindowClose}>
               <div>
-                <h1>{individualSchoolData.schoolName}</h1>
+                <h1>{individualSchoolData.SchoolName}</h1>
               </div>
             </InfoWindow>
           </Map>
@@ -106,7 +109,7 @@ class IndivSchool extends Component {
 
       return (
         <div class="wholePage" style={{ minHeight: window.innerHeight - 180 }}>
-          {individualSchoolData.schoolName == null ? (
+          {individualSchoolData.SchoolName == null ? (
             <div>
               <Grid item>
                 <CircularProgress />
@@ -136,7 +139,7 @@ class IndivSchool extends Component {
                     <Grid container md={3}>
                       <img
                         className="indiv-logo"
-                        src={individualSchoolData.logoImage}
+                        src={individualSchoolData.logo}
                         alt="Navbar Logo"
                       />
                     </Grid>
@@ -148,10 +151,10 @@ class IndivSchool extends Component {
                       alignItems="flex-start"
                     >
                       <Grid item class="schoolName">
-                        {individualSchoolData.schoolName}
+                        {individualSchoolData.SchoolName}
                       </Grid>
                       <Grid item class="schoolConference">
-                        {individualSchoolData.schoolConference}
+                        {individualSchoolData.conf}
                       </Grid>
                     </Grid>
                   </Grid>
@@ -168,24 +171,18 @@ class IndivSchool extends Component {
                       </Grid>
                       <Grid item class="infotext">
                         Attendance:{" "}
-                        {individualSchoolData.schoolAttendance.toLocaleString(
-                          "en",
-                          {
-                            useGrouping: true
-                          }
-                        )}
+                        {individualSchoolData.attendance.toLocaleString("en", {
+                          useGrouping: true
+                        })}
                       </Grid>
                       <Grid item class="infotext">
                         Tuition: $
-                        {individualSchoolData.schoolTuition.toLocaleString(
-                          "en",
-                          {
-                            useGrouping: true
-                          }
-                        )}
+                        {individualSchoolData.tuition.toLocaleString("en", {
+                          useGrouping: true
+                        })}
                       </Grid>
                       <Grid item class="infotext">
-                        Mascot: {individualSchoolData.schoolMascot}
+                        Mascot: {individualSchoolData.mascot}
                       </Grid>
                     </Grid>
 
@@ -200,22 +197,17 @@ class IndivSchool extends Component {
                         Stadium
                       </Grid>
                       <Grid item class="infotext">
-                        {individualSchoolData.stadiumName}
+                        {individualSchoolData.StadiumName}
                       </Grid>
                       <Grid item class="infotext">
-                        {individualSchoolData.stadiumOnOffCampus
-                          ? "On "
-                          : "Off "}
+                        {individualSchoolData.onOffCampus ? "On " : "Off "}
                         Campus
                       </Grid>
                       <Grid item class="infotext">
                         Capacity:{" "}
-                        {individualSchoolData.stadiumCapacity.toLocaleString(
-                          "en",
-                          {
-                            useGrouping: true
-                          }
-                        )}
+                        {individualSchoolData.capacity.toLocaleString("en", {
+                          useGrouping: true
+                        })}
                       </Grid>
                     </Grid>
 
@@ -230,14 +222,13 @@ class IndivSchool extends Component {
                         Coach
                       </Grid>
                       <Grid item class="infotext">
-                        {individualSchoolData.headCoach}
+                        {individualSchoolData.Name}
                       </Grid>
                       <Grid item class="infotext">
-                        Titles Won: {individualSchoolData.headCoachTitles}
+                        Titles Won: {individualSchoolData.Titles}
                       </Grid>
                       <Grid item class="infotext">
-                        Win Percentage:{" "}
-                        {individualSchoolData.headCoachWinPercentage}
+                        Win Percentage: {individualSchoolData.WL}
                       </Grid>
                     </Grid>
                   </Grid>
@@ -250,7 +241,7 @@ class IndivSchool extends Component {
                     <Grid item className="schoolImageContainer">
                       <img
                         className="indiv-image"
-                        src={individualSchoolData.schoolImage}
+                        src={individualSchoolData.image}
                         alt="Navbar Logo"
                       />
                     </Grid>
@@ -276,37 +267,36 @@ class IndivSchool extends Component {
                           className="buttonSearch"
                           primary
                           onClick={this.handleClickChampionship(
-                            individualSchoolData.school
+                            individualSchoolData
                           )}
                         >
                           more info
                         </Button>
                       </Grid>{" "}
                       <Grid item className="infotext">
-                        18/19 Record: {individualSchoolData.lastYearRecord}
+                        18/19 Record: {individualSchoolData.wins}-
+                        {individualSchoolData.losses}
                         <br></br>{" "}
                         <Button
                           className="buttonSearch"
                           primary
-                          onClick={this.handleClickRecord(
-                            individualSchoolData.school
-                          )}
+                          onClick={this.handleClickRecord(individualSchoolData)}
                         >
                           more info
                         </Button>
                       </Grid>{" "}
                       <Grid item className="infotext">
-                        NBA Drafted Players: {individualSchoolData.nbaDrafted}
+                        Players in the NBA: {individualSchoolData.NBAplayers}
                         <br></br>{" "}
-                        <Button
-                          className="buttonSearch"
-                          primary
-                          onClick={this.handleClickNBA(
-                            individualSchoolData.school
-                          )}
-                        >
-                          more info
-                        </Button>
+                        {individualSchoolData.NBAplayers > 0 ? (
+                          <Button
+                            className="buttonSearch"
+                            primary
+                            onClick={this.handleClickNBA(individualSchoolData)}
+                          >
+                            more info
+                          </Button>
+                        ) : null}
                       </Grid>
                     </Grid>
                   </Grid>
@@ -321,8 +311,8 @@ class IndivSchool extends Component {
                   className="townContainer"
                 >
                   <Grid item class="title">
-                    {individualSchoolData.cityName},{" "}
-                    {individualSchoolData.state}
+                    {individualSchoolData.name},{" "}
+                    {individualSchoolData.state_name}
                   </Grid>
                   <Grid item class="infotext">
                     Population:{" "}
@@ -346,13 +336,13 @@ class IndivSchool extends Component {
   }
 }
 const mapStateToProps = state => ({
-  individualSchoolData: state.individualSchoolData,
+  schoolData: state.schoolData,
   query: state.query
 });
 export default connect(
   mapStateToProps,
   // { saveRecord }
-  {}
+  { getSchoolRecord, getSchoolChampionships, getSchoolNBA }
 )(
   GoogleApiWrapper({
     apiKey: "AIzaSyBjtRUvjcEnZpsmS4xtRF1f5HZ1RRV8qWI"

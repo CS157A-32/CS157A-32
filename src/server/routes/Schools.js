@@ -5,17 +5,15 @@ const pool = require("../db/database");
 schools.use(cors());
 
 schools.get("/search", (req, res) => {
-  console.log(req.query);
   pool.query(
     `SELECT * FROM schools WHERE schools.SchoolName IN (SELECT School_name FROM located_in JOIN
-      (SELECT id, state_name FROM city WHERE state_name LIKE "%${req.query.term}%") AS a
+      (SELECT id, state_name FROM city WHERE state_name LIKE "%${req.query.searchValue}%") AS a
       ON
       a.id = located_in.City_id)
-      OR schools.SchoolName LIKE "%${req.query.term}%"
-      OR schools.conf LIKE "%${req.query.term}%"`,
+      OR schools.SchoolName LIKE "%${req.query.searchValue}%"
+      OR schools.conf LIKE "%${req.query.searchValue}%"`,
     (err, result) => {
       if (err) throw err;
-      console.log(result);
       res.send(result);
     }
   );
@@ -32,18 +30,17 @@ schools.get("/oneSchool", (req, res) => {
     coaches ON schools.SchoolName = coaches.School_name JOIN
     head_coach ON coaches.Coach_id = head_coach.ID JOIN
     record ON record.school = schools.SchoolName AND record.year = 2019 JOIN
-    (SELECT COUNT(college) AS NBAplayers FROM nbaplayers WHERE nbaplayers.college = "${req.query.school}") AS NBAcount
-    WHERE schools.SchoolName = "${req.query.school}" AND schools.conf = "${req.query.conference}"`,
+    (SELECT COUNT(college) AS NBAplayers FROM nbaplayers WHERE nbaplayers.college = "${req.query.schoolName}") AS NBAcount
+    WHERE schools.SchoolName = "${req.query.schoolName}" AND schools.conf = "${req.query.schoolConference}"`,
     (err, result) => {
       if (err) throw err;
-      console.log(result);
-      res.send(result);
+      console.log(result[0]);
+      res.send(result[0]);
     }
   );
 });
 
 schools.get("/record", (req, res) => {
-  console.log(req.query);
   pool.query(
     `SELECT * FROM record WHERE school = "${req.query.school}" AND conference = "${req.query.conference}"`,
     (err, result) => {
@@ -78,7 +75,6 @@ schools.get("/allnba", (req, res) => {
     `SELECT * FROM nbaplayers WHERE college = "${req.query.school}"`,
     (err, result) => {
       if (err) throw err;
-      console.log(result);
       res.send(result);
     }
   );
