@@ -19,11 +19,11 @@ function Footer() {
           </Grid>
           <Grid className="footerLayout" item>
             <Link
-              to="/disclaimer"
+              to="/login"
               className="footerMenuLink"
               style={{ color: "white" }}
             >
-              Disclaimer
+              Admin Panel
             </Link>
           </Grid>
         </Grid>

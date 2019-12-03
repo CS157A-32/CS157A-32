@@ -6,17 +6,11 @@ import SearchWidget from "./search_widget/SearchWidget";
 
 import LandingImage from "../../images/landing_image2.jpg";
 
-
 // Animation CSS imports
 import "./Landing.css";
 
 // Material-UI Imports
-import {
-  Grid,
-  Typography,
-  withStyles,
-  withWidth
-} from "@material-ui/core";
+import { withStyles, withWidth } from "@material-ui/core";
 
 // Component CSS
 let styles = {
@@ -29,9 +23,9 @@ let styles = {
 };
 
 class Landing extends Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   componentDidMount = () => {
     // during logged in , if we change url to landing/home it will redirect to homepage
@@ -47,31 +41,29 @@ class Landing extends Component {
   };
 
   render() {
-      let { classes, landing, width } = this.props;
+    // let { classes, landing, width } = this.props;
 
-      // Generates markup for the inspiration picture
-      let genBackgroundImgStyle = () => {
-        return {
-          display: "block",
-          backgroundImage: `url(${LandingImage})`,
-          backgroundSize: "cover",
-          maxWidth: "100%",
-          minHeight: 800,
-        };
+    // Generates markup for the inspiration picture
+    let genBackgroundImgStyle = () => {
+      return {
+        display: "block",
+        backgroundImage: `url(${LandingImage})`,
+        backgroundSize: "cover",
+        maxWidth: "100%",
+        minHeight: 800
       };
+    };
 
-      return (
-        <div>
-          <div style={genBackgroundImgStyle()} boxShadow={3}>
-          .
-            {/* <div className={`${classes.searchWidgetBox} fadeIn`}> */}
-            <div >
-              <SearchWidget />
-            </div>
+    return (
+      <div>
+        <div style={genBackgroundImgStyle()} boxShadow={3}>
+          .{/* <div className={`${classes.searchWidgetBox} fadeIn`}> */}
+          <div>
+            <SearchWidget />
           </div>
         </div>
-      );
-    
+      </div>
+    );
   }
 }
 
@@ -88,5 +80,5 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   // { readyLanding, setLandingStatus }
-  {  }
+  {}
 )(withStyles(styles)(withWidth()(Landing)));

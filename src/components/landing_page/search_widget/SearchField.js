@@ -11,6 +11,7 @@ import { withStyles } from "@material-ui/core/styles";
 import suggestions from "../search_widget/autosuggest.json";
 import Location from "@material-ui/icons/Room";
 import School from "@material-ui/icons/School";
+import Conference from "@material-ui/icons/ViewList";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
@@ -38,10 +39,14 @@ function renderSuggestion(suggestion, { query, isHighlighted }) {
   const matches = match(suggestion.label, query);
   const parts = parse(suggestion.label, matches);
   let add = null;
-  if (suggestion.style === "city") {
-    add = <Location />;
+  if (suggestion.style === "conference") {
+    add = <Conference />;
   } else {
-    add = <School />;
+    if (suggestion.style === "state") {
+      add = <Location />;
+    } else {
+      add = <School />;
+    }
   }
   return (
     <MenuItem selected={isHighlighted} component="div">
@@ -172,7 +177,7 @@ class SearchField extends React.Component {
           {...autosuggestProps}
           inputProps={{
             classes,
-            placeholder: "Enter University or City",
+            placeholder: "Enter University, Conference or State",
             value: this.props.searchValue,
 
             onChange: this.handleChange
