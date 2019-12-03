@@ -1,17 +1,57 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { logoutUser } from "../../actions/authActions";
-
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 import { connect } from "react-redux";
 import {
   Grid,
   Button,
   TextField,
   Typography,
+  withStyles,
   withWidth,
-  Card
+  Divider,
+  ExpansionPanel,
+  ExpansionPanelDetails,
+  ExpansionPanelSummary
 } from "@material-ui/core";
+import { ExpandMore } from "@material-ui/icons";
 import axios from "axios";
+
+// Component CSS
+let styles = {
+  root: {
+    width: "100%",
+    marginTop: 30,
+    overflowX: "auto",
+    marginBottom: 20
+  }
+};
+
+const StyledTableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white
+  },
+  body: {
+    fontSize: 14
+  }
+}))(TableCell);
+
+const StyledTableRow = withStyles(theme => ({
+  root: {
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.background.default
+    }
+  }
+}))(TableRow);
 
 class AdminPage extends Component {
   constructor() {
@@ -27,13 +67,16 @@ class AdminPage extends Component {
       team2: null,
       salary2: null,
       id2: null,
-      id3: null
+      id3: null,
+      NBAPlayers: [],
+      open: false
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onSubmitEdit = this.onSubmitEdit.bind(this);
     this.onSubmitDelete = this.onSubmitDelete.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   componentWillMount() {
@@ -44,6 +87,12 @@ class AdminPage extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    axios
+      .get("/api/nba/allPlayers")
+      .then(res => {
+        this.setState({ NBAPlayers: res.data });
+      })
+      .catch(err => console.log(err));
   }
 
   handleLogout() {
@@ -63,7 +112,13 @@ class AdminPage extends Component {
       team: this.state.team2,
       salary: this.state.salary2
     };
-    axios.post("/api/nba/editPlayer", editPlayer);
+
+    axios
+      .post("/api/nba/editPlayer", editPlayer)
+      .then(res => {
+        this.setState({ open: true });
+      })
+      .catch(err => console.log(err));
   }
 
   onSubmitDelete(e) {
@@ -71,7 +126,13 @@ class AdminPage extends Component {
     let deletePlayer = {
       playerId: this.state.id3
     };
-    axios.post("/api/nba/deletePlayer", deletePlayer);
+
+    axios
+      .post("/api/nba/deletePlayer", deletePlayer)
+      .then(res => {
+        this.setState({ open: true });
+      })
+      .catch(err => console.log(err));
   }
 
   onSubmit(e) {
@@ -85,16 +146,128 @@ class AdminPage extends Component {
       team: this.state.team,
       salary: this.state.salary
     };
-    axios.post("/api/nba/addPlayer", newPlayer);
+    axios
+      .post("/api/nba/addPlayer", newPlayer)
+      .then(res => {
+        this.setState({ open: true });
+      })
+      .catch(err => console.log(err));
   }
 
+  handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    this.setState({ open: false });
+  };
+
   render() {
+    let players;
+    let { classes } = this.props;
+
+    if (this.state.NBAPlayers[0] != null) {
+      players = this.state.NBAPlayers.map(player => {
+        return (
+          <StyledTableRow key={player.id}>
+            <StyledTableCell component="th" scope="row">
+              {player.id}
+            </StyledTableCell>
+            <StyledTableCell align="left">{player.name}</StyledTableCell>
+            <StyledTableCell align="left">{player.college}</StyledTableCell>
+            <StyledTableCell align="left">{player.position}</StyledTableCell>
+            <StyledTableCell align="left">{player.nbasince}</StyledTableCell>
+            <StyledTableCell align="left">{player.team}</StyledTableCell>
+            <StyledTableCell align="right">
+              ${" "}
+              {player.salary.toLocaleString("en", {
+                useGrouping: true
+              })}
+            </StyledTableCell>
+          </StyledTableRow>
+        );
+      });
+    }
     return (
       <div>
+        <Snackbar
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left"
+          }}
+          open={this.state.open}
+          autoHideDuration={6000}
+          onClose={this.handleClose}
+          message={<span id="message-id">Query submitted</span>}
+          action={[
+            <IconButton
+              key="close"
+              aria-label="close"
+              color="#3cb043"
+              className={classes.close}
+              onClick={this.handleClose}
+            >
+              <CloseIcon />
+            </IconButton>
+          ]}
+        />
+
         <Grid container id="TeamContainer">
-          <Grid id="AboutContainerTitle" item xs={12} lg={12}>
-            Administrator Page
+          <Grid id="AdminContainerTitle" item xs={12} lg={12}>
+            Administrator Panel
           </Grid>
+          <Grid item xs={12} lg={12}>
+            Welcome, {this.props.auth.user.username}
+          </Grid>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Grid
+            container
+            direction="row"
+            alignItems="flex-start"
+            justify="center"
+          >
+            <ExpansionPanel
+              defaultExpanded={false}
+              square="false"
+              style={{ marginBottom: 8 }}
+            >
+              <ExpansionPanelSummary expandIcon={<ExpandMore />}>
+                <Typography className={classes.subtitles} variant="subtitle2">
+                  Current NBA Players
+                </Typography>
+              </ExpansionPanelSummary>
+              <Divider />
+              <ExpansionPanelDetails>
+                <Paper className={classes.root}>
+                  <Table aria-label="customized table">
+                    <TableHead>
+                      <StyledTableRow>
+                        <StyledTableCell>ID</StyledTableCell>
+                        <StyledTableCell align="left">Name</StyledTableCell>
+                        <StyledTableCell align="left">College</StyledTableCell>
+                        <StyledTableCell align="left">Position</StyledTableCell>
+                        <StyledTableCell align="left">
+                          Year Drafted
+                        </StyledTableCell>
+                        <StyledTableCell align="left">NBA Team</StyledTableCell>
+                        <StyledTableCell align="right">Salary</StyledTableCell>
+                      </StyledTableRow>
+                    </TableHead>
+                    <TableBody>{players}</TableBody>
+                  </Table>
+                </Paper>
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
+          </Grid>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+
           <Grid
             container
             spacing={0}
@@ -297,4 +470,4 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   logoutUser
-})(withWidth()(AdminPage));
+})(withStyles(styles)(withWidth()(AdminPage)));

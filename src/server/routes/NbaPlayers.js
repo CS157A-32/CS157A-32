@@ -26,7 +26,6 @@ nbaplayers.get("/byTeam", (req, res) => {
 
 //Adding NBA player
 nbaplayers.post("/addPlayer", (req, res) => {
-  console.log(req.body);
   let newPlayerId;
   pool.query(
     //Insert into nbaplayers table
@@ -34,9 +33,7 @@ nbaplayers.post("/addPlayer", (req, res) => {
         VALUES ("${req.body.name}", "${req.body.college}", "${req.body.position}", ${req.body.yeardrafted}, "${req.body.team}", ${req.body.salary})`,
     (err, result) => {
       if (err) throw err;
-      console.log(result);
       newPlayerId = result.insertId; //use the new insertID as pid for next insert
-      console.log(result.insertId);
       pool.query(
         //Insert relationship info int playedfor table
         `INSERT INTO playedfor (pid, schoolname, conference)
@@ -52,21 +49,10 @@ nbaplayers.post("/addPlayer", (req, res) => {
 
 //Delete player (by ID, or by name and team)
 nbaplayers.post("/deletePlayer", (req, res) => {
-  console.log(req.body);
-  let playerId;
-  // pool.query(
-  //   `SELECT id FROM nbaplayers WHERE name = "${req.body.name}" AND team = "${req.body.team}"`,
-  //   (err, result) => {
-  //     if (err) throw err;
-  //     console.log(result);
-  //     console.log(result[0].id);
-  //     playerId = result[0].id;
-  //     console.log(playerId);
   pool.query(
     `DELETE FROM nbaplayers WHERE id = ${req.body.playerId}`,
     (err, result) => {
       if (err) throw err;
-      console.log(result.affectedRows);
       pool.query(
         `DELETE FROM playedfor WHERE pid = ${req.body.playerId}`,
         (err, result) => {
@@ -76,8 +62,6 @@ nbaplayers.post("/deletePlayer", (req, res) => {
       );
     }
   );
-  // }
-  // );
 });
 
 //Edit a player's team and salary using ID reference
