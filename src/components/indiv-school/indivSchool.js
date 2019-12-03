@@ -309,11 +309,11 @@ class IndivSchool extends Component {
                 >
                   <Grid item class="title">
                     {individualSchoolData.name},{" "}
-                    {individualSchoolData.state_name}
+                    {individualSchoolData.State_name}
                   </Grid>
                   <Grid item class="infotext">
                     Population:{" "}
-                    {individualSchoolData.population.toLocaleString("en", {
+                    {individualSchoolData.Population.toLocaleString("en", {
                       useGrouping: true
                     })}
                   </Grid>
