@@ -1,47 +1,56 @@
-  @media screen and (min-width: 1200px) {
-    img.aboutPage-images {
-      position: relative;
-      width: 200px;
-      filter: grayscale(100%);
-      text-align: center;
-      align-content: center;
-      align-items: center;
-      align-self: center;
-    }
-  
-    .teamMemberContainer {
-      padding-bottom: 80px;
-    }
-  
-    #AboutPageNames {
-      font-size: 22px;
-      font-weight: 600;
-      color: black;
-      text-align: center;
-      text-decoration: none;
-    }
-  
-    #AboutPageRoles {
-      font-size: 18px;
-      font-weight: 600;
-      color: black;
-      text-align: center;
-    }
-  
-    .teamMemberSwitch2 {
-      display: none;
-    }
-  }
-  
-  #AboutContainerTitle {
-    color: #0c4b78;
-    font-size: 34px;
-    font-weight: 900;
+@media screen and (min-width: 1200px) {
+  img.aboutPage-images {
     position: relative;
+    width: 200px;
+    filter: grayscale(100%);
     text-align: center;
-    padding: 50px;
+    align-content: center;
+    align-items: center;
+    align-self: center;
   }
-  
-  img.aboutPage-images:hover {
-    filter: none;
+
+  .teamMemberContainer {
+    padding-bottom: 80px;
   }
+
+  #AboutPageNames {
+    font-size: 22px;
+    font-weight: 600;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  #AboutPageRoles {
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    text-align: center;
+  }
+
+  .teamMemberSwitch2 {
+    display: none;
+  }
+}
+
+#AboutContainerTitle {
+  color: #0c4b78;
+  font-size: 34px;
+  font-weight: 900;
+  position: relative;
+  text-align: center;
+  padding: 50px;
+}
+
+#AdminContainerTitle {
+  color: #0c4b78;
+  font-size: 34px;
+  font-weight: 900;
+  position: relative;
+  text-align: center;
+  padding-top: 50px;
+}
+
+img.aboutPage-images:hover {
+  filter: none;
+}
