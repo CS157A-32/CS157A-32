@@ -186,26 +186,46 @@ class SearchResults extends Component {
                       {school.conf}
                     </Grid>
                   </Grid>
-                  {school.attendance > 40000 || school.tuition < 5000 ? (
-                    <ReactStars
-                      className="stars"
-                      count={1}
-                      value={1}
-                      size={36}
-                      edit={false}
-                      color2={"#FFD700"}
-                      color1={"#dcdcdc"}
-                    />
-                  ) : null}
-
-                  <Grid item md={3} class="moreInfoButton">
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={this.handleClickToSchool(school)}
-                    >
-                      More details
-                    </Button>
+                  {/* <Grid item md={1}>
+                    {school.attendance > 40000 || school.tuition < 5000 ? (
+                      <ReactStars
+                        className="stars"
+                        count={1}
+                        value={1}
+                        size={36}
+                        edit={false}
+                        color2={"#FFD700"}
+                        color1={"#dcdcdc"}
+                      />
+                    ) : null}
+                  </Grid> */}
+                  <Grid
+                    container
+                    md={3}
+                    direction="row"
+                    justify="flex-start"
+                    alignItems="center"
+                  >
+                    <Grid item class="moreInfoButton">
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={this.handleClickToSchool(school)}
+                      >
+                        More details
+                      </Button>
+                    </Grid>{" "}
+                    {school.attendance > 40000 || school.tuition < 5000 ? (
+                      <ReactStars
+                        className="stars"
+                        count={1}
+                        value={1}
+                        size={36}
+                        edit={false}
+                        color2={"#FFD700"}
+                        color1={"#dcdcdc"}
+                      />
+                    ) : null}
                   </Grid>
                 </Grid>
               </Card>

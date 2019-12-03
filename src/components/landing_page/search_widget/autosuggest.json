@@ -1,26 +1,53 @@
 {
   "title": "properties",
   "name": [
-    { "label": "New York", "style": "city" },
-    { "label": "San Francisco", "style": "city" },
-    { "label": "Los Angeles", "style": "city" },
-    { "label": "San Diego", "style": "city" },
-    { "label": "Berkeley", "style": "city" },
-    { "label": "Boston", "style": "city" },
-    { "label": "Stanford", "style": "city" },
-    { "label": "Philadelphia", "style": "city" },
-    { "label": "San Jose", "style": "city" },
-    {
-      "label": "San Jose State University"
-    },
-    {
-      "label": "University of California Los Angeles"
-    },
-    {
-      "label": "Stanford University"
-    },
-    {
-      "label": "University of California Berkeley"
-    }
+    { "label": "Mountain West", "style": "conference" },
+    { "label": "Pacific 12", "style": "conference" },
+    { "label": "Big Sky", "style": "conference" },
+
+    { "label": "Arizona", "style": "state" },
+    { "label": "California", "style": "state" },
+    { "label": "Colorado", "style": "state" },
+    { "label": "Idaho", "style": "state" },
+    { "label": "Nevada", "style": "state" },
+    { "label": "New Mexico", "style": "state" },
+    { "label": "Oregon", "style": "state" },
+    { "label": "Utah", "style": "state" },
+    { "label": "Washington", "style": "state" },
+    { "label": "Wyoming", "style": "state" },
+
+    { "label": "San Jose State University" },
+    { "label": "San Diego State University" },
+    { "label": "California State University, Fresno" },
+    { "label": "University of Nevada, Las Vegas" },
+    { "label": "University of Nevada" },
+    { "label": "University of New Mexico" },
+    { "label": "University of Wyoming" },
+    { "label": "Colorado State University" },
+    { "label": "Boise State University" },
+    { "label": "Utah State University" },
+    { "label": "U.S. Air Force Academy" },
+    { "label": "University of Utah" },
+    { "label": "University of Colorado, Boulder" },
+    { "label": "Arizona State University" },
+    { "label": "University of Arizona" },
+    { "label": "University of California, Los Angeles" },
+    { "label": "Stanford University" },
+    { "label": "University of California, Berkeley" },
+    { "label": "Washington State University" },
+    { "label": "Oregon State University" },
+    { "label": "University of Oregon" },
+    { "label": "University of Washington" },
+    { "label": "University of Southern California" },
+    { "label": "University of Northern Colorado" },
+    { "label": "University of North Dakota" },
+    { "label": "Idaho State University" },
+    { "label": "Eastern Washington University" },
+    { "label": "Southern Utah University" },
+    { "label": "Weber State University" },
+    { "label": "Northern Arizona University" },
+    { "label": "California State University, Sacramento" },
+    { "label": "University of Idaho" },
+    { "label": "Portland State University" }
   ]
 }

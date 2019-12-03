@@ -21,7 +21,7 @@ img.school-logo {
 }
 
 .moreInfoButton {
-  margin-top: 8%;
+  margin-right: 9%;
 }
 
 .extraBoxTitle {
@@ -33,7 +33,6 @@ img.school-logo {
 }
 
 .extraBoxOptions {
-  /* margin-top: 6%; */
   margin-bottom: 3%;
   font-size: 17px;
   font-weight: bold;
@@ -42,11 +41,8 @@ img.school-logo {
 
 .test {
   margin: 10px;
-  /* padding:10px; */
 }
 
 .stars {
-  top: 5px;
-  /* left: 140px; */
-  right: 60px;
+  bottom: 4px;
 }
