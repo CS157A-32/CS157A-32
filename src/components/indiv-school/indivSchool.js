@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import { connect } from "react-redux";
-// import { saveRecord } from "../../actions/adminActions";
 import Button from "@material-ui/core/Button";
 import { Grid, CircularProgress } from "@material-ui/core";
 import {
@@ -20,17 +19,9 @@ class IndivSchool extends Component {
   constructor() {
     super();
     this.state = {};
-    this.saveSchoolInfo = this.saveSchoolInfo.bind(this);
     this.handleClickNBA = this.handleClickNBA.bind(this);
     this.handleClickRecord = this.handleClickRecord.bind(this);
     this.handleClickChampionship = this.handleClickChampionship.bind(this);
-  }
-
-  saveSchoolInfo(d1, d2) {
-    let tempSchoolInfo = {
-      name: "school"
-    };
-    // this.props.saveRecord(tempSchoolInfo);
   }
 
   // Handles 'Navigate to More Records info
@@ -345,11 +336,11 @@ const mapStateToProps = state => ({
   schoolData: state.schoolData,
   query: state.query
 });
-export default connect(
-  mapStateToProps,
-  // { saveRecord }
-  { getSchoolRecord, getSchoolChampionships, getSchoolNBA }
-)(
+export default connect(mapStateToProps, {
+  getSchoolRecord,
+  getSchoolChampionships,
+  getSchoolNBA
+})(
   GoogleApiWrapper({
     apiKey: "AIzaSyBjtRUvjcEnZpsmS4xtRF1f5HZ1RRV8qWI"
   })(IndivSchool)

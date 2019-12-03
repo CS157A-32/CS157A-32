@@ -1,3 +1,6 @@
+// #1
+// importing everything we need
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -5,18 +8,17 @@ import { Grid, Card, Button, withStyles, withWidth } from "@material-ui/core";
 import { getIndividualSchoolResult } from "../../actions/searchResultActions";
 import { clearData } from "../../actions/searchResultActions";
 import ReactStars from "react-stars";
-
 import {
   ArrowDownward,
   ArrowUpward,
   Sort,
   FilterList
 } from "@material-ui/icons";
-
 import SearchResultBackGround from "../../images/court_background.jpg";
 import "./searchResult.css";
 
-// Component CSS
+// #2
+// Component CSS, used to style components
 let styles = {
   pad25: {
     padding: 25,
@@ -36,7 +38,6 @@ let styles = {
   optionsBox: {
     padding: 8
   },
-
   button: {
     color: "#808080",
     fontSize: 16
@@ -51,23 +52,29 @@ class SearchResults extends Component {
   constructor() {
     super();
 
+    // #3
+    // variables for sorting and filter
     this.state = {
-      schools: null,
       sortOrder: 0,
       filter: null
     };
 
+    // #4
+    // helper functions, further explained below
     this.handleDescending = this.handleDescending.bind(this);
     this.handleAscending = this.handleAscending.bind(this);
     this.handleClickToSchool = this.handleClickToSchool.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
   }
 
+  // #5
+  // clearing old data
   componentWillUnmount() {
     this.props.clearData();
   }
 
-  // Handles 'Navigate to Individual School'
+  // #6
+  // send school information to backend + navigate to indivSchool page
   handleClickToSchool = school => event => {
     event.preventDefault();
     this.props.getIndividualSchoolResult({
@@ -77,9 +84,10 @@ class SearchResults extends Component {
     this.props.history.push("/indivSchool");
   };
 
+  // #7
+  // setting the filter variable
   handleFilter = conf => event => {
     event.preventDefault();
-
     if (conf === "all")
       this.setState({
         filter: null
@@ -90,12 +98,13 @@ class SearchResults extends Component {
       });
   };
 
+  // #8
+  // setting the sort variable
   handleDescending() {
     this.setState({
       sortOrder: 2
     });
   }
-
   handleAscending() {
     this.setState({
       sortOrder: 1
@@ -116,30 +125,31 @@ class SearchResults extends Component {
         };
       };
       let { classes } = this.props;
-
       let schoolsList;
       let conferences;
 
+      // #9
+      // based on the sort variable, we sort schools
       if (this.state.sortOrder === 1) {
         this.props.query.schoolQuery.sort(function(a, b) {
-          var x = a.SchoolName < b.SchoolName ? -1 : 1;
+          let x = a.SchoolName < b.SchoolName ? -1 : 1;
           return x;
         });
       } else if (this.state.sortOrder === 2) {
         this.props.query.schoolQuery.sort(function(a, b) {
-          var x = a.SchoolName < b.SchoolName ? 1 : -1;
+          let x = a.SchoolName < b.SchoolName ? 1 : -1;
           return x;
         });
       }
 
-      var conferenceList = null;
-
+      let conferenceList = null;
       conferenceList = this.props.query.schoolQuery.map(school => {
         return school.conf;
       });
-
       let uniqueConferenceList = [...new Set(conferenceList)];
 
+      // #10
+      // create the conference component used for filtering
       conferences = uniqueConferenceList.map(conf => {
         return (
           <Grid item class="extraBoxOptions">
@@ -153,6 +163,8 @@ class SearchResults extends Component {
         );
       });
 
+      // #11
+      // create all the school components (incl. logo, name, conference, star, more detail button)
       schoolsList = this.props.query.schoolQuery.map(school => {
         if (this.state.filter == null || school.conf == this.state.filter)
           return (
@@ -186,19 +198,6 @@ class SearchResults extends Component {
                       {school.conf}
                     </Grid>
                   </Grid>
-                  {/* <Grid item md={1}>
-                    {school.attendance > 40000 || school.tuition < 5000 ? (
-                      <ReactStars
-                        className="stars"
-                        count={1}
-                        value={1}
-                        size={36}
-                        edit={false}
-                        color2={"#FFD700"}
-                        color1={"#dcdcdc"}
-                      />
-                    ) : null}
-                  </Grid> */}
                   <Grid
                     container
                     md={3}
@@ -269,6 +268,9 @@ class SearchResults extends Component {
               </Card>
             </Grid>
 
+            {/* // #12
+         // create the sorting component, ascending/descending
+         // calls to handleAscending and handleDescending  */}
             <Grid item md={3} className={classes.optionsBox}>
               <Card className={classes.pad30} square="false">
                 <Grid
@@ -306,6 +308,8 @@ class SearchResults extends Component {
             </Grid>
           </Grid>
 
+          {/* // #13
+         // insert the school list */}
           {schoolsList}
           <br></br>
         </div>
@@ -316,14 +320,12 @@ class SearchResults extends Component {
 
 SearchResults.propTypes = {
   auth: PropTypes.object.isRequired,
-  landing: PropTypes.object.isRequired,
   getIndividualSchoolResult: PropTypes.func.isRequired,
   query: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  landing: state.landing,
   query: state.query
 });
 
